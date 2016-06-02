@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Slider Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.8/angular-material.css">
+  <link rel="stylesheet" href="https://material.angularjs.org/1.0.8/docs.css">
+</head>
+
+<body ng-app="SliderApp" ng-controller="SliderCtrl">
+  <h1>Slider Demo for Gold Pulse</h1>
+  <h2>Build for version 2 of Gold Pulse</h2>
+  <div ng-repeat="metric in metrics" layout="" class="container-fluid">
+    <div flex="10" layout="" layout-align="center center">
+      <span class="md-body-1">{{metric}} <input ng-attr-id="{{metric + '-box'}}" type="checkbox" ng-click="toggleFix(metric)"></span>
+    </div>
+    <md-slider flex="" ng-model="weightings[metric]" ng-attr-min='{{(fixed.indexOf(metric) !== -1)? -100 : rangeMin}}' ng-attr-max='{{(fixed.indexOf(metric) !== -1)? 100 : rangeMax}}' aria-label="{{metric}}" ng-attr-id="{{metric + '-slider'}}" class="" ng-disabled="fixed.indexOf(metric) !== -1 || disableAll"></md-slider>
+    <div flex="20" layout="" layout-align="center center">
+      {{weightings[metric] + "%"}}
+    </div>
+  </div>
+
+  <h3> The absolute sum of the metrics is {{sum() + "%"}}.</h3>
+
+  <!-- Load Javascript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+  <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.8/angular-material.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.3.14/polyfill.min.js"></script>
+  
+  <!-- Load App -->
+  <script src="/dist/main.js"></script>
+</body>
+
+</html>

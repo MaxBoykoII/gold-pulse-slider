@@ -1,0 +1,28 @@
+{
+  "name": "gold-pulse-sliders",
+  "version": "0.0.0",
+  "description": "Demo of the slider feature planned for version 2 of GoldPulse",
+  "main": "server.js",
+  "scripts": {
+    "start": "./node_modules/.bin/babel-node  server.js",
+    "build": "babel development/js -d client/dist -w -s"
+  },
+  "repository": "",
+  "author": "Max Boyko <maxboykomax@gmail.com>",
+  "dependencies": {
+    "async": "~0.2.8",
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.9.0",
+    "express": "~3.2.4",
+    "path": "^0.12.7",
+    "socket.io": "~0.9.14"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
